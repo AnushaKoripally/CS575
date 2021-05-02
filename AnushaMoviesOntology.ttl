@@ -1,0 +1,1714 @@
+@prefix : <http://www.movies.com/ontologies/AnushaMovies.owl> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.movies.com/ontologies/AnushaMovies.owl> .
+
+<http://www.movies.com/ontologies/AnushaMovies.owl> rdf:type owl:Ontology ;
+                                                     rdfs:comment "A movie ontology that describes various movies and their details" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.co-ode.org/ontologies/ont.owl#hasNationality
+<http://www.co-ode.org/ontologies/ont.owl#hasNationality> rdf:type owl:ObjectProperty .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#hasOriginalLanguage
+<http://www.co-ode.org/ontologies/ont.owl#hasOriginalLanguage> rdf:type owl:ObjectProperty .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#hasWriter
+<http://www.co-ode.org/ontologies/ont.owl#hasWriter> rdf:type owl:ObjectProperty ;
+                                                     owl:inverseOf <http://www.co-ode.org/ontologies/ont.owl#isWriterOf> ;
+                                                     rdfs:domain :Movie .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#isWriterOf
+<http://www.co-ode.org/ontologies/ont.owl#isWriterOf> rdf:type owl:ObjectProperty ;
+                                                      rdfs:range :Movie .
+
+
+###  http://www.movies.com/ontologies/AnushaMovies.owl#hasActor
+:hasActor rdf:type owl:ObjectProperty ;
+          owl:inverseOf :isActorOf ;
+          rdfs:domain :Movie .
+
+
+###  http://www.movies.com/ontologies/AnushaMovies.owl#hasActress
+:hasActress rdf:type owl:ObjectProperty ;
+            owl:inverseOf :isActressof ;
+            rdfs:domain :Movie .
+
+
+###  http://www.movies.com/ontologies/AnushaMovies.owl#hasDirector
+:hasDirector rdf:type owl:ObjectProperty ;
+             owl:inverseOf :isDirectorOf ;
+             rdfs:domain :Movie ;
+             rdfs:range :Directors .
+
+
+###  http://www.movies.com/ontologies/AnushaMovies.owl#hasRating
+:hasRating rdf:type owl:ObjectProperty ;
+           owl:inverseOf :isRatingOf ;
+           rdfs:domain :Movie ;
+           rdfs:range :Rating .
+
+
+###  http://www.movies.com/ontologies/AnushaMovies.owl#isActorOf
+:isActorOf rdf:type owl:ObjectProperty ;
+           rdfs:range :Movie .
+
+
+###  http://www.movies.com/ontologies/AnushaMovies.owl#isActressof
+:isActressof rdf:type owl:ObjectProperty ;
+             rdfs:range :Movie .
+
+
+###  http://www.movies.com/ontologies/AnushaMovies.owl#isDirectorOf
+:isDirectorOf rdf:type owl:ObjectProperty ;
+              rdfs:domain :Directors ;
+              rdfs:range :Movie .
+
+
+###  http://www.movies.com/ontologies/AnushaMovies.owl#isRatingOf
+:isRatingOf rdf:type owl:ObjectProperty ;
+            rdfs:domain :Rating ;
+            rdfs:range :Movie .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.co-ode.org/ontologies/ont.owl#Actor
+<http://www.co-ode.org/ontologies/ont.owl#Actor> rdf:type owl:Class .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Actress
+<http://www.co-ode.org/ontologies/ont.owl#Actress> rdf:type owl:Class .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Aditya
+<http://www.co-ode.org/ontologies/ont.owl#Aditya> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actor> ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                    owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                  ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#AdultsOnly
+<http://www.co-ode.org/ontologies/ont.owl#AdultsOnly> rdf:type owl:Class ;
+                                                      rdfs:subClassOf :Rating .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#AlluArjun
+<http://www.co-ode.org/ontologies/ont.owl#AlluArjun> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actor> ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                       owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                     ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#AltheaKaushal
+<http://www.co-ode.org/ontologies/ont.owl#AltheaKaushal> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Writers> ,
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                           owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                         ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Anushka
+<http://www.co-ode.org/ontologies/ont.owl#Anushka> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actress> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                     owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                   ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#ArvindSwamy
+<http://www.co-ode.org/ontologies/ont.owl#ArvindSwamy> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actor> ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                         owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                       ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Arya
+<http://www.co-ode.org/ontologies/ont.owl#Arya> rdf:type owl:Class ;
+                                                rdfs:subClassOf :Originals ,
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasWriter> ;
+                                                                  owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#SukumarW>
+                                                                ] ,
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :hasActor ;
+                                                                  owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#AlluArjun>
+                                                                ] ,
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :hasActress ;
+                                                                  owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Genelia>
+                                                                ] ,
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :hasDirector ;
+                                                                  owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Sukumar>
+                                                                ] ,
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :hasRating ;
+                                                                  owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#ChildAccompainedByAdult>
+                                                                ] ,
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasOriginalLanguage> ;
+                                                                  owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Telugu>
+                                                                ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Badri
+<http://www.co-ode.org/ontologies/ont.owl#Badri> rdf:type owl:Class ;
+                                                 rdfs:subClassOf :Remake ,
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasWriter> ;
+                                                                   owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Jaganadh>
+                                                                 ] ,
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :hasActor ;
+                                                                   owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#PawanKalyan>
+                                                                 ] ,
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :hasActress ;
+                                                                   owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#RenuDesai>
+                                                                 ] ,
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :hasDirector ;
+                                                                   owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#PuriJaganadh>
+                                                                 ] ,
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :hasRating ;
+                                                                   owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Unrestricted>
+                                                                 ] ,
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasOriginalLanguage> ;
+                                                                   owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Telugu>
+                                                                 ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Beyonce
+<http://www.co-ode.org/ontologies/ont.owl#Beyonce> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actress> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                     owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                   ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Bodyguard
+<http://www.co-ode.org/ontologies/ont.owl#Bodyguard> rdf:type owl:Class ;
+                                                     rdfs:subClassOf :Remake ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasWriter> ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Chowksey>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasActor ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#SalmanKhan>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasActress ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#KareenaKapoor>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasDirector ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Siddique>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasRating ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#AdultsOnly>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasOriginalLanguage> ;
+                                                                       owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Hindi>
+                                                                     ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#BreakingPoint
+<http://www.co-ode.org/ontologies/ont.owl#BreakingPoint> rdf:type owl:Class ;
+                                                         rdfs:subClassOf :Remake ,
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasWriter> ;
+                                                                           owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#GeneHong>
+                                                                         ] ,
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty :hasActor ;
+                                                                           owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#DavidWalton>
+                                                                         ] ,
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty :hasActor ;
+                                                                           owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#JeremySisto>
+                                                                         ] ,
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty :hasDirector ;
+                                                                           owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#JayKaras>
+                                                                         ] ,
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty :hasRating ;
+                                                                           owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#AdultsOnly>
+                                                                         ] ,
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasOriginalLanguage> ;
+                                                                           owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#English>
+                                                                         ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#BryanCranston
+<http://www.co-ode.org/ontologies/ont.owl#BryanCranston> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actor> ,
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                           owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                         ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#ChildAccompainedByAdult
+<http://www.co-ode.org/ontologies/ont.owl#ChildAccompainedByAdult> rdf:type owl:Class ;
+                                                                   rdfs:subClassOf :Rating .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Chowksey
+<http://www.co-ode.org/ontologies/ont.owl#Chowksey> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Writers> ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                      owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                    ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#ChrisBuck
+<http://www.co-ode.org/ontologies/ont.owl#ChrisBuck> rdf:type owl:Class ;
+                                                     rdfs:subClassOf :Directors ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                       owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                     ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#ChrisSparling
+<http://www.co-ode.org/ontologies/ont.owl#ChrisSparling> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Writers> ,
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                           owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                         ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Dabangg
+<http://www.co-ode.org/ontologies/ont.owl#Dabangg> rdf:type owl:Class ;
+                                                   rdfs:subClassOf :Series .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Dabangg_1
+<http://www.co-ode.org/ontologies/ont.owl#Dabangg_1> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Dabangg> ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasWriter> ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#DilipShulka>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasActor ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#SalmanKhan>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasActress ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#SonakshiSinha>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasDirector ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#PrabhuDeva>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasRating ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#AdultsOnly>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasOriginalLanguage> ;
+                                                                       owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Hindi>
+                                                                     ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Dabangg_2
+<http://www.co-ode.org/ontologies/ont.owl#Dabangg_2> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Dabangg> ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasWriter> ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#DilipShulka>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasActor ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#SalmanKhan>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasActress ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#SonakshiSinha>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasDirector ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#PrabhuDeva>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasRating ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#AdultsOnly>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasOriginalLanguage> ;
+                                                                       owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Hindi>
+                                                                     ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Dabangg_3
+<http://www.co-ode.org/ontologies/ont.owl#Dabangg_3> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Dabangg> ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasWriter> ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#DilipShulka>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasActor ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#SalmanKhan>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasActress ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#SonakshiSinha>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasDirector ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#PrabhuDeva>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasRating ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#AdultsOnly>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasOriginalLanguage> ;
+                                                                       owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Hindi>
+                                                                     ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Dasarath
+<http://www.co-ode.org/ontologies/ont.owl#Dasarath> rdf:type owl:Class ;
+                                                    rdfs:subClassOf :Directors ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                      owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                    ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#DavidWalton
+<http://www.co-ode.org/ontologies/ont.owl#DavidWalton> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actor> ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                         owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                       ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Deepika
+<http://www.co-ode.org/ontologies/ont.owl#Deepika> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actress> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                     owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                   ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Dhrushyam
+<http://www.co-ode.org/ontologies/ont.owl#Dhrushyam> rdf:type owl:Class ;
+                                                     rdfs:subClassOf :Series .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Dhrushyam_1
+<http://www.co-ode.org/ontologies/ont.owl#Dhrushyam_1> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Dhrushyam> ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasWriter> ;
+                                                                         owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#ParchuriBrothers>
+                                                                       ] ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty :hasActor ;
+                                                                         owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Venkatesh>
+                                                                       ] ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty :hasActress ;
+                                                                         owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Meena>
+                                                                       ] ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty :hasDirector ;
+                                                                         owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#SriPriya>
+                                                                       ] ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty :hasRating ;
+                                                                         owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Unrestricted>
+                                                                       ] ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasOriginalLanguage> ;
+                                                                         owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Telugu>
+                                                                       ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Dhrushyam_2
+<http://www.co-ode.org/ontologies/ont.owl#Dhrushyam_2> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Dhrushyam> ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasWriter> ;
+                                                                         owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#ParchuriBrothers>
+                                                                       ] ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty :hasActor ;
+                                                                         owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Venkatesh>
+                                                                       ] ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty :hasActress ;
+                                                                         owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Meena>
+                                                                       ] ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty :hasDirector ;
+                                                                         owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#SriPriya>
+                                                                       ] ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty :hasRating ;
+                                                                         owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Unrestricted>
+                                                                       ] ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasOriginalLanguage> ;
+                                                                         owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Telugu>
+                                                                       ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#DilRaju
+<http://www.co-ode.org/ontologies/ont.owl#DilRaju> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Writers> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                     owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                   ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#DilipShulka
+<http://www.co-ode.org/ontologies/ont.owl#DilipShulka> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Writers> ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                         owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                       ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#DonaldGlover
+<http://www.co-ode.org/ontologies/ont.owl#DonaldGlover> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actor> ,
+                                                                        [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                          owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                        ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#FarahKhan
+<http://www.co-ode.org/ontologies/ont.owl#FarahKhan> rdf:type owl:Class ;
+                                                     rdfs:subClassOf :Directors ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                       owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                     ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Frances
+<http://www.co-ode.org/ontologies/ont.owl#Frances> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actress> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                     owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                   ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Frozen
+<http://www.co-ode.org/ontologies/ont.owl#Frozen> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#KidMovies> ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasWriter> ;
+                                                                    owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#HansChristianAndersen>
+                                                                  ] ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty :hasActor ;
+                                                                    owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#RobertPine>
+                                                                  ] ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty :hasActress ;
+                                                                    owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#KristenBell>
+                                                                  ] ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty :hasDirector ;
+                                                                    owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#ChrisBuck>
+                                                                  ] ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty :hasDirector ;
+                                                                    owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#JenniferLee>
+                                                                  ] ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty :hasRating ;
+                                                                    owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Kids>
+                                                                  ] ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasOriginalLanguage> ;
+                                                                    owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#English>
+                                                                  ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GanagarajuGunnam
+<http://www.co-ode.org/ontologies/ont.owl#GanagarajuGunnam> rdf:type owl:Class ;
+                                                            rdfs:subClassOf :Directors ,
+                                                                            [ rdf:type owl:Restriction ;
+                                                                              owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                              owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                            ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GangaRajuGunnam
+<http://www.co-ode.org/ontologies/ont.owl#GangaRajuGunnam> rdf:type owl:Class ;
+                                                           rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Writers> ,
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                             owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                           ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GeneHong
+<http://www.co-ode.org/ontologies/ont.owl#GeneHong> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Writers> ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                      owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                    ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Genelia
+<http://www.co-ode.org/ontologies/ont.owl#Genelia> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actress> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                     owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                   ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#GeraldButler
+<http://www.co-ode.org/ontologies/ont.owl#GeraldButler> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actor> ,
+                                                                        [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                          owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                        ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Greenland
+<http://www.co-ode.org/ontologies/ont.owl#Greenland> rdf:type owl:Class ;
+                                                     rdfs:subClassOf :Originals ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasWriter> ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#ChrisSparling>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasActor ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#GeraldButler>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasActress ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Morenabaccarin>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasDirector ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#RicRomanWaugh>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasRating ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#ChildAccompainedByAdult>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasOriginalLanguage> ;
+                                                                       owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#English>
+                                                                     ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#HansChristianAndersen
+<http://www.co-ode.org/ontologies/ont.owl#HansChristianAndersen> rdf:type owl:Class ;
+                                                                 rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Writers> ,
+                                                                                 [ rdf:type owl:Restriction ;
+                                                                                   owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                                   owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                                 ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#HappyNewYear
+<http://www.co-ode.org/ontologies/ont.owl#HappyNewYear> rdf:type owl:Class ;
+                                                        rdfs:subClassOf :Originals ,
+                                                                        [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasWriter> ;
+                                                                          owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#AltheaKaushal>
+                                                                        ] ,
+                                                                        [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty :hasActor ;
+                                                                          owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#ShahRukhKhan>
+                                                                        ] ,
+                                                                        [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty :hasActress ;
+                                                                          owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Deepika>
+                                                                        ] ,
+                                                                        [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty :hasDirector ;
+                                                                          owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#FarahKhan>
+                                                                        ] ,
+                                                                        [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty :hasRating ;
+                                                                          owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#ChildAccompainedByAdult>
+                                                                        ] ,
+                                                                        [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasOriginalLanguage> ;
+                                                                          owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Hindi>
+                                                                        ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Hari
+<http://www.co-ode.org/ontologies/ont.owl#Hari> rdf:type owl:Class ;
+                                                rdfs:subClassOf :Directors ,
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                  owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Hariw
+<http://www.co-ode.org/ontologies/ont.owl#Hariw> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Writers> ,
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                   owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                 ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Ileana
+<http://www.co-ode.org/ontologies/ont.owl#Ileana> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actress> ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                    owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                  ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#IreneMecchi
+<http://www.co-ode.org/ontologies/ont.owl#IreneMecchi> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Writers> ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                         owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                       ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Jacqueline
+<http://www.co-ode.org/ontologies/ont.owl#Jacqueline> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actress> ,
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                        owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                      ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Jaganadh
+<http://www.co-ode.org/ontologies/ont.owl#Jaganadh> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Writers> ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                      owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                    ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#JayKaras
+<http://www.co-ode.org/ontologies/ont.owl#JayKaras> rdf:type owl:Class ;
+                                                    rdfs:subClassOf :Directors ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                      owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                    ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#JdMcCrary
+<http://www.co-ode.org/ontologies/ont.owl#JdMcCrary> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actress> ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                       owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                     ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#JeffNathanson
+<http://www.co-ode.org/ontologies/ont.owl#JeffNathanson> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Writers> ,
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                           owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                         ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#JenniferLee
+<http://www.co-ode.org/ontologies/ont.owl#JenniferLee> rdf:type owl:Class ;
+                                                       rdfs:subClassOf :Directors ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                         owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                       ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#JeremySisto
+<http://www.co-ode.org/ontologies/ont.owl#JeremySisto> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actor> ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                         owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                       ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Joaquin
+<http://www.co-ode.org/ontologies/ont.owl#Joaquin> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actor> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                     owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                   ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Joker
+<http://www.co-ode.org/ontologies/ont.owl#Joker> rdf:type owl:Class ;
+                                                 rdfs:subClassOf :Originals ,
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasWriter> ;
+                                                                   owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#ScottSilver>
+                                                                 ] ,
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :hasActor ;
+                                                                   owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Joaquin>
+                                                                 ] ,
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :hasActress ;
+                                                                   owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Frances>
+                                                                 ] ,
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :hasDirector ;
+                                                                   owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#ToddPhilips>
+                                                                 ] ,
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :hasRating ;
+                                                                   owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Unrestricted>
+                                                                 ] ,
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasOriginalLanguage> ;
+                                                                   owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#English>
+                                                                 ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#JonFavreau
+<http://www.co-ode.org/ontologies/ont.owl#JonFavreau> rdf:type owl:Class ;
+                                                      rdfs:subClassOf :Directors ,
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                        owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                      ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#JonLee
+<http://www.co-ode.org/ontologies/ont.owl#JonLee> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actor> ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                    owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                  ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#KabirSingh
+<http://www.co-ode.org/ontologies/ont.owl#KabirSingh> rdf:type owl:Class ;
+                                                      rdfs:subClassOf :Remake ,
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasWriter> ;
+                                                                        owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Siddarth>
+                                                                      ] ,
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty :hasActor ;
+                                                                        owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#ShahidKapoor>
+                                                                      ] ,
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty :hasActress ;
+                                                                        owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#KiaraAdvani>
+                                                                      ] ,
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty :hasDirector ;
+                                                                        owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#SandeepVanga>
+                                                                      ] ,
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty :hasRating ;
+                                                                        owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#AdultsOnly>
+                                                                      ] ,
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasOriginalLanguage> ;
+                                                                        owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Hindi>
+                                                                      ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Kajal
+<http://www.co-ode.org/ontologies/ont.owl#Kajal> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actress> ,
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                   owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                 ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Kangana
+<http://www.co-ode.org/ontologies/ont.owl#Kangana> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actress> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                     owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                   ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Kannan
+<http://www.co-ode.org/ontologies/ont.owl#Kannan> rdf:type owl:Class ;
+                                                  rdfs:subClassOf :Directors ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                    owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                  ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#KareenaKapoor
+<http://www.co-ode.org/ontologies/ont.owl#KareenaKapoor> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actress> ,
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                           owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                         ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Karthi
+<http://www.co-ode.org/ontologies/ont.owl#Karthi> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actor> ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                    owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                  ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Kavya
+<http://www.co-ode.org/ontologies/ont.owl#Kavya> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actress> ,
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                   owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                 ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#KiaraAdvani
+<http://www.co-ode.org/ontologies/ont.owl#KiaraAdvani> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actress> ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                         owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                       ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Kick
+<http://www.co-ode.org/ontologies/ont.owl#Kick> rdf:type owl:Class ;
+                                                rdfs:subClassOf :Originals ,
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasWriter> ;
+                                                                  owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Vamsi>
+                                                                ] ,
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :hasActor ;
+                                                                  owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#SalmanKhan>
+                                                                ] ,
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :hasActress ;
+                                                                  owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Jacqueline>
+                                                                ] ,
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :hasDirector ;
+                                                                  owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#SajidNadiadwala>
+                                                                ] ,
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :hasRating ;
+                                                                  owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#AdultsOnly>
+                                                                ] ,
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasOriginalLanguage> ;
+                                                                  owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Hindi>
+                                                                ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#KidMovies
+<http://www.co-ode.org/ontologies/ont.owl#KidMovies> rdf:type owl:Class ;
+                                                     rdfs:subClassOf :Movie .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Kids
+<http://www.co-ode.org/ontologies/ont.owl#Kids> rdf:type owl:Class ;
+                                                rdfs:subClassOf :Rating .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#KrishnaShah
+<http://www.co-ode.org/ontologies/ont.owl#KrishnaShah> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Writers> ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                         owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                       ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#KristenBell
+<http://www.co-ode.org/ontologies/ont.owl#KristenBell> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actress> ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                         owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                       ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#LittleSoldiers
+<http://www.co-ode.org/ontologies/ont.owl#LittleSoldiers> rdf:type owl:Class ;
+                                                          rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#KidMovies> ,
+                                                                          [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasWriter> ;
+                                                                            owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#GangaRajuGunnam>
+                                                                          ] ,
+                                                                          [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty :hasActor ;
+                                                                            owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Aditya>
+                                                                          ] ,
+                                                                          [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty :hasActress ;
+                                                                            owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Kavya>
+                                                                          ] ,
+                                                                          [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty :hasDirector ;
+                                                                            owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#GanagarajuGunnam>
+                                                                          ] ,
+                                                                          [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty :hasRating ;
+                                                                            owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Kids>
+                                                                          ] ,
+                                                                          [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasOriginalLanguage> ;
+                                                                            owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Telugu>
+                                                                          ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Madhavan
+<http://www.co-ode.org/ontologies/ont.owl#Madhavan> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actor> ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                      owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                    ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#MaheshBabu
+<http://www.co-ode.org/ontologies/ont.owl#MaheshBabu> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actor> ,
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                        owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                      ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#ManiRatnam
+<http://www.co-ode.org/ontologies/ont.owl#ManiRatnam> rdf:type owl:Class ;
+                                                      rdfs:subClassOf :Directors ,
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                        owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                      ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#ManiRatnamW
+<http://www.co-ode.org/ontologies/ont.owl#ManiRatnamW> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Writers> ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                         owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                       ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Meena
+<http://www.co-ode.org/ontologies/ont.owl#Meena> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actress> ,
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                   owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                 ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Morenabaccarin
+<http://www.co-ode.org/ontologies/ont.owl#Morenabaccarin> rdf:type owl:Class ;
+                                                          rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actress> ,
+                                                                          [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                            owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                          ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#MrPerfect
+<http://www.co-ode.org/ontologies/ont.owl#MrPerfect> rdf:type owl:Class ;
+                                                     rdfs:subClassOf :Originals ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasWriter> ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#DilRaju>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasActor ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Prabhas>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasActress ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Kajal>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasDirector ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Dasarath>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasRating ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#ChildAccompainedByAdult>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasOriginalLanguage> ;
+                                                                       owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Telugu>
+                                                                     ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Nationality
+<http://www.co-ode.org/ontologies/ont.owl#Nationality> rdf:type owl:Class .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#ParchuriBrothers
+<http://www.co-ode.org/ontologies/ont.owl#ParchuriBrothers> rdf:type owl:Class ;
+                                                            rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Writers> ,
+                                                                            [ rdf:type owl:Restriction ;
+                                                                              owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                              owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                            ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#PawanKalyan
+<http://www.co-ode.org/ontologies/ont.owl#PawanKalyan> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actor> ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                         owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                       ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Pokiri
+<http://www.co-ode.org/ontologies/ont.owl#Pokiri> rdf:type owl:Class ;
+                                                  rdfs:subClassOf :Remake ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasWriter> ;
+                                                                    owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Jaganadh>
+                                                                  ] ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty :hasActor ;
+                                                                    owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#MaheshBabu>
+                                                                  ] ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty :hasActress ;
+                                                                    owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Ileana>
+                                                                  ] ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty :hasDirector ;
+                                                                    owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#PuriJaganadh>
+                                                                  ] ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty :hasRating ;
+                                                                    owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#ChildAccompainedByAdult>
+                                                                  ] ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasOriginalLanguage> ;
+                                                                    owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Telugu>
+                                                                  ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Prabhas
+<http://www.co-ode.org/ontologies/ont.owl#Prabhas> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actor> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                     owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                   ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#PrabhuDeva
+<http://www.co-ode.org/ontologies/ont.owl#PrabhuDeva> rdf:type owl:Class ;
+                                                      rdfs:subClassOf :Directors ,
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                        owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                      ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Prakash
+<http://www.co-ode.org/ontologies/ont.owl#Prakash> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Writers> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                     owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                   ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#PuriJaganadh
+<http://www.co-ode.org/ontologies/ont.owl#PuriJaganadh> rdf:type owl:Class ;
+                                                        rdfs:subClassOf :Directors ,
+                                                                        [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                          owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                        ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#RajatArora
+<http://www.co-ode.org/ontologies/ont.owl#RajatArora> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Writers> ,
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                        owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                      ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#RamMohan
+<http://www.co-ode.org/ontologies/ont.owl#RamMohan> rdf:type owl:Class ;
+                                                    rdfs:subClassOf :Directors ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                      owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                    ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Ramayanam
+<http://www.co-ode.org/ontologies/ont.owl#Ramayanam> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#KidMovies> ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasWriter> ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#KrishnaShah>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasActor ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#BryanCranston>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasDirector ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#RamMohan>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasRating ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Kids>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasOriginalLanguage> ;
+                                                                       owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#English>
+                                                                     ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Rashmika
+<http://www.co-ode.org/ontologies/ont.owl#Rashmika> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actress> ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                      owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                    ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#RenuDesai
+<http://www.co-ode.org/ontologies/ont.owl#RenuDesai> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actress> ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                       owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                     ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#RicRomanWaugh
+<http://www.co-ode.org/ontologies/ont.owl#RicRomanWaugh> rdf:type owl:Class ;
+                                                         rdfs:subClassOf :Directors ,
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                           owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                         ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#RobertPine
+<http://www.co-ode.org/ontologies/ont.owl#RobertPine> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actor> ,
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                        owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                      ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#SajidNadiadwala
+<http://www.co-ode.org/ontologies/ont.owl#SajidNadiadwala> rdf:type owl:Class ;
+                                                           rdfs:subClassOf :Directors ,
+                                                                           [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                             owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                           ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Saki
+<http://www.co-ode.org/ontologies/ont.owl#Saki> rdf:type owl:Class ;
+                                                rdfs:subClassOf :Remake ,
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasWriter> ;
+                                                                  owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#ManiRatnamW>
+                                                                ] ,
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :hasActor ;
+                                                                  owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Madhavan>
+                                                                ] ,
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :hasActress ;
+                                                                  owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Shalini>
+                                                                ] ,
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :hasDirector ;
+                                                                  owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#ManiRatnam>
+                                                                ] ,
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :hasRating ;
+                                                                  owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#ChildAccompainedByAdult>
+                                                                ] ,
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasOriginalLanguage> ;
+                                                                  owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Tamil>
+                                                                ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#SalmanKhan
+<http://www.co-ode.org/ontologies/ont.owl#SalmanKhan> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actor> ,
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                        owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                      ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#SandeepVanga
+<http://www.co-ode.org/ontologies/ont.owl#SandeepVanga> rdf:type owl:Class ;
+                                                        rdfs:subClassOf :Directors ,
+                                                                        [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                          owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                        ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#ScottSilver
+<http://www.co-ode.org/ontologies/ont.owl#ScottSilver> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Writers> ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                         owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                       ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#ShahRukhKhan
+<http://www.co-ode.org/ontologies/ont.owl#ShahRukhKhan> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actor> ,
+                                                                        [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                          owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                        ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#ShahidKapoor
+<http://www.co-ode.org/ontologies/ont.owl#ShahidKapoor> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actor> ,
+                                                                        [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                          owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                        ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Shalini
+<http://www.co-ode.org/ontologies/ont.owl#Shalini> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actress> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                     owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                   ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Siddarth
+<http://www.co-ode.org/ontologies/ont.owl#Siddarth> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Writers> ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                      owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                    ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Siddique
+<http://www.co-ode.org/ontologies/ont.owl#Siddique> rdf:type owl:Class ;
+                                                    rdfs:subClassOf :Directors ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                      owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                    ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Singham
+<http://www.co-ode.org/ontologies/ont.owl#Singham> rdf:type owl:Class ;
+                                                   rdfs:subClassOf :Series .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Singham_1
+<http://www.co-ode.org/ontologies/ont.owl#Singham_1> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Singham> ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasWriter> ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Hariw>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasActor ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Suriya>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasActress ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Anushka>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasDirector ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Hari>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasRating ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#AdultsOnly>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasOriginalLanguage> ;
+                                                                       owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Tamil>
+                                                                     ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Singham_2
+<http://www.co-ode.org/ontologies/ont.owl#Singham_2> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Singham> ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasWriter> ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Hariw>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasActor ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Suriya>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasActress ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Anushka>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasDirector ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Hari>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasRating ;
+                                                                       owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#AdultsOnly>
+                                                                     ] ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasOriginalLanguage> ;
+                                                                       owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Tamil>
+                                                                     ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#SonakshiSinha
+<http://www.co-ode.org/ontologies/ont.owl#SonakshiSinha> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actress> ,
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                           owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                         ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#SriPriya
+<http://www.co-ode.org/ontologies/ont.owl#SriPriya> rdf:type owl:Class ;
+                                                    rdfs:subClassOf :Directors ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                      owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                    ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Sukumar
+<http://www.co-ode.org/ontologies/ont.owl#Sukumar> rdf:type owl:Class ;
+                                                   rdfs:subClassOf :Directors ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                     owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                   ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#SukumarW
+<http://www.co-ode.org/ontologies/ont.owl#SukumarW> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Writers> ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                      owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                    ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Sultan
+<http://www.co-ode.org/ontologies/ont.owl#Sultan> rdf:type owl:Class ;
+                                                  rdfs:subClassOf :Originals ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasWriter> ;
+                                                                    owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Prakash>
+                                                                  ] ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty :hasActor ;
+                                                                    owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Karthi>
+                                                                  ] ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty :hasActress ;
+                                                                    owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Rashmika>
+                                                                  ] ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty :hasDirector ;
+                                                                    owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Kannan>
+                                                                  ] ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty :hasRating ;
+                                                                    owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#AdultsOnly>
+                                                                  ] ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasOriginalLanguage> ;
+                                                                    owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Tamil>
+                                                                  ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Suriya
+<http://www.co-ode.org/ontologies/ont.owl#Suriya> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actor> ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                    owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                  ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Thalaivi
+<http://www.co-ode.org/ontologies/ont.owl#Thalaivi> rdf:type owl:Class ;
+                                                    rdfs:subClassOf :Originals ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasWriter> ;
+                                                                      owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#RajatArora>
+                                                                    ] ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty :hasActor ;
+                                                                      owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#ArvindSwamy>
+                                                                    ] ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty :hasActress ;
+                                                                      owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Kangana>
+                                                                    ] ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty :hasDirector ;
+                                                                      owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Vijay>
+                                                                    ] ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty :hasRating ;
+                                                                      owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#AdultsOnly>
+                                                                    ] ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasOriginalLanguage> ;
+                                                                      owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Tamil>
+                                                                    ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#TheLionKing
+<http://www.co-ode.org/ontologies/ont.owl#TheLionKing> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#KidMovies> ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasWriter> ;
+                                                                         owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#IreneMecchi>
+                                                                       ] ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasWriter> ;
+                                                                         owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#JeffNathanson>
+                                                                       ] ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty :hasActor ;
+                                                                         owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#DonaldGlover>
+                                                                       ] ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty :hasActor ;
+                                                                         owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#JonLee>
+                                                                       ] ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty :hasActress ;
+                                                                         owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Beyonce>
+                                                                       ] ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty :hasActress ;
+                                                                         owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#JdMcCrary>
+                                                                       ] ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty :hasDirector ;
+                                                                         owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#JonFavreau>
+                                                                       ] ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty :hasRating ;
+                                                                         owl:someValuesFrom <http://www.co-ode.org/ontologies/ont.owl#Kids>
+                                                                       ] ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasOriginalLanguage> ;
+                                                                         owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#English>
+                                                                       ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#ToddPhilips
+<http://www.co-ode.org/ontologies/ont.owl#ToddPhilips> rdf:type owl:Class ;
+                                                       rdfs:subClassOf :Directors ,
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                         owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#American>
+                                                                       ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Unrestricted
+<http://www.co-ode.org/ontologies/ont.owl#Unrestricted> rdf:type owl:Class ;
+                                                        rdfs:subClassOf :Rating .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Vamsi
+<http://www.co-ode.org/ontologies/ont.owl#Vamsi> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Writers> ,
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                   owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                 ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Venkatesh
+<http://www.co-ode.org/ontologies/ont.owl#Venkatesh> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.co-ode.org/ontologies/ont.owl#Actor> ,
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                       owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                     ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Vijay
+<http://www.co-ode.org/ontologies/ont.owl#Vijay> rdf:type owl:Class ;
+                                                 rdfs:subClassOf :Directors ,
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty <http://www.co-ode.org/ontologies/ont.owl#hasNationality> ;
+                                                                   owl:hasValue <http://www.co-ode.org/ontologies/ont.owl#Indian>
+                                                                 ] .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Writers
+<http://www.co-ode.org/ontologies/ont.owl#Writers> rdf:type owl:Class .
+
+
+###  http://www.movies.com/ontologies/AnushaMovies.owl#Directors
+:Directors rdf:type owl:Class .
+
+
+###  http://www.movies.com/ontologies/AnushaMovies.owl#Language
+:Language rdf:type owl:Class .
+
+
+###  http://www.movies.com/ontologies/AnushaMovies.owl#Movie
+:Movie rdf:type owl:Class .
+
+
+###  http://www.movies.com/ontologies/AnushaMovies.owl#Originals
+:Originals rdf:type owl:Class ;
+           rdfs:subClassOf :Movie .
+
+
+###  http://www.movies.com/ontologies/AnushaMovies.owl#Rating
+:Rating rdf:type owl:Class .
+
+
+###  http://www.movies.com/ontologies/AnushaMovies.owl#Remake
+:Remake rdf:type owl:Class ;
+        rdfs:subClassOf :Movie .
+
+
+###  http://www.movies.com/ontologies/AnushaMovies.owl#Series
+:Series rdf:type owl:Class ;
+        rdfs:subClassOf :Movie .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.co-ode.org/ontologies/ont.owl#American
+<http://www.co-ode.org/ontologies/ont.owl#American> rdf:type owl:NamedIndividual ,
+                                                             <http://www.co-ode.org/ontologies/ont.owl#Nationality> .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#English
+<http://www.co-ode.org/ontologies/ont.owl#English> rdf:type owl:NamedIndividual ,
+                                                            :Language .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Hindi
+<http://www.co-ode.org/ontologies/ont.owl#Hindi> rdf:type owl:NamedIndividual ,
+                                                          :Language .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Indian
+<http://www.co-ode.org/ontologies/ont.owl#Indian> rdf:type owl:NamedIndividual ,
+                                                           <http://www.co-ode.org/ontologies/ont.owl#Nationality> .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Tamil
+<http://www.co-ode.org/ontologies/ont.owl#Tamil> rdf:type owl:NamedIndividual ,
+                                                          :Language .
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Telugu
+<http://www.co-ode.org/ontologies/ont.owl#Telugu> rdf:type owl:NamedIndividual ,
+                                                           :Language .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <http://www.co-ode.org/ontologies/ont.owl#Frozen>
+                <http://www.co-ode.org/ontologies/ont.owl#LittleSoldiers>
+                <http://www.co-ode.org/ontologies/ont.owl#Ramayanam>
+                <http://www.co-ode.org/ontologies/ont.owl#TheLionKing>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <http://www.co-ode.org/ontologies/ont.owl#KidMovies>
+                :Originals
+                :Remake
+                :Series
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
